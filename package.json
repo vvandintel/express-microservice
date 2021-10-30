@@ -1,0 +1,37 @@
+{
+  "name": "express-microservice",
+  "version": "1.0.0",
+  "description": "Example NodeJS Express microservice",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvandintel/express-microservice.git"
+  },
+  "keywords": [
+    "express",
+    "microservice",
+    "node"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
+  "author": "Vincent P. Van Dintel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vvandintel/express-microservice/issues"
+  },
+  "homepage": "https://github.com/vvandintel/express-microservice#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.4.2",
+    "@opentelemetry/api": "^1.0.3",
+    "@opentelemetry/auto-instrumentations-node": "^0.26.0",
+    "@opentelemetry/exporter-collector-grpc": "^0.25.0",
+    "@opentelemetry/sdk-node": "^0.26.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
