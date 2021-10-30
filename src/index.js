@@ -23,12 +23,7 @@ app.use(expressWinston.logger({
 })) 
 
 app.get('/', routes.helloRoute)
-app.get('/daily-forecast', routes.dailyForecast)
-
-// app.use(function(err, req, res, next) {
-//     console.error(err.stack)
-//     res.status(500).send({ message: 'Sorry, a server occured. Please try again later' })
-// })
+app.get('/current-weather', routes.currentWeather)
 
 io.on('connection', (socket) => {
     console.log('a user connected')
