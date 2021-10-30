@@ -23,19 +23,13 @@ const sdk = new NodeSDK({
     instrumentations: [getNodeAutoInstrumentations()]
 });
 
-const startTracing = () => {
-    sdk.start()
-        .then(() => console.log('Tracing initialized'))
-        .catch((error) => console.log('Error initializing tracing', error));
+sdk.start()
+    .then(() => console.log('Tracing initialized'))
+    .catch((error) => console.log('Error initializing tracing', error));
 
-    process.on('SIGTERM', () => {
-        sdk.shutdown()
-            .then(() => console.log('Tracing terminated'))
-            .catch((error) => console.log('Error terminating tracing', error))
-            .finally(() => process.exit(0));
-    });
-}
-
-module.exports = {
-    startTracing
-}
+process.on('SIGTERM', () => {
+    sdk.shutdown()
+        .then(() => console.log('Tracing terminated'))
+        .catch((error) => console.log('Error terminating tracing', error))
+        .finally(() => process.exit(0));
+});

@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const routes = require('./routes')
-require('./util').startTracing()
+// require('./util').startTracing()
 
 // Declare a route
 app.get('/', routes.helloRoute)
