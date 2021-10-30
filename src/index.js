@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require('express')
 const { Server } = require('socket.io')
-// const morgan = require('morgan')
 const helmet = require('helmet')
 const expressWinston = require('express-winston')
 const winston = require('winston')
@@ -11,7 +10,6 @@ const server = http.createServer(app)
 const io = new Server(server)
 const routes = require('./routes')
 
-// app.use(morgan('combined'))
 app.use(helmet())
 app.use(express.json())
 app.use(expressWinston.logger({
@@ -24,6 +22,7 @@ app.use(expressWinston.logger({
     )
 }))
 app.get('/', routes.helloRoute)
+app.get('/daily-forecast', routes.dailyForecast)
 
 io.on('connection', (socket) => {
     console.log('a user connected')
@@ -34,6 +33,7 @@ const start = async () => {
     try {
         await app.listen(process.env.PORT || 5000, process.env.host || '0.0.0.0')
     } catch (err) {
+        console.log(err)
         process.exit(1)
     }
 }
